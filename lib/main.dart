@@ -23,6 +23,10 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
+  final String name;
+
+  MyHomePage({required this.name});
+
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -139,7 +143,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Text("PokeDex"),
+        title: Text("Welcome to PokeDex ${widget.name}"),
         backgroundColor: Colors.green,
       ),
       floatingActionButton: FloatingActionButton(
