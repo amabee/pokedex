@@ -3,6 +3,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:pokedex/login.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MyHomePage(),
+      home: LoginPage(),
     );
   }
 }
@@ -56,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Future<void> _savePokemonData() async {
     var box = await Hive.openBox('pokemonBox');
-    await box.clear(); // Clear existing data
+    await box.clear();
     for (var pokemon in pokeList) {
       await box.add(pokemon);
     }
